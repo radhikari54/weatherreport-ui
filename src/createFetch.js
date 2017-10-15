@@ -1,12 +1,3 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 /* @flow */
 
 type Fetch = (url: string, options: ?any) => Promise<any>;
@@ -25,7 +16,7 @@ type Options = {
 function createFetch(fetch: Fetch, { baseUrl, cookie }: Options) {
   // NOTE: Tweak the default options to suite your application needs
   const defaults = {
-    method: 'POST', // handy with GraphQL backends
+    method: 'GET',
     mode: baseUrl ? 'cors' : 'same-origin',
     credentials: baseUrl ? 'include' : 'same-origin',
     headers: {
@@ -36,7 +27,8 @@ function createFetch(fetch: Fetch, { baseUrl, cookie }: Options) {
   };
 
   return (url: string, options: any) =>
-    url.startsWith('/graphql') || url.startsWith('/api')
+    // Expand /weather to an absolute URL. [WLW]
+    url.startsWith('/weather')
       ? fetch(`${baseUrl}${url}`, {
           ...defaults,
           ...options,

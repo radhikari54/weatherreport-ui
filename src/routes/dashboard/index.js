@@ -1,9 +1,9 @@
 import React from 'react';
-import Dashboard from './Dashboard'
+import Dashboard from './Dashboard';
 import Layout from '../../components/Layout';
 
 async function action({ fetch }) {
-  const response = await fetch('http://localhost:8080/weather');
+  const response = await fetch('/weather');
   const reports = await response.json();
   if (!reports) throw new Error('Failed to load weather reports.');
   return {
