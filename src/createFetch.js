@@ -14,6 +14,8 @@ type Options = {
  * https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch
  */
 function createFetch(fetch: Fetch, { baseUrl, cookie }: Options) {
+  //  console.log(`Creating fetch: baseUrl=${baseUrl}`);
+
   // NOTE: Tweak the default options to suite your application needs
   const defaults = {
     method: 'GET',
