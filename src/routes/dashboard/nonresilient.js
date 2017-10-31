@@ -4,16 +4,14 @@ import Layout from '../../components/Layout';
 
 // Dashboard controller
 async function action({ fetch }) {
-  //  console.log('Resilient dashboard invoked');
-
-  const response = await fetch('/weather?resilient=true');
+  const response = await fetch('/weather?resilient=false');
   const reports = await response.json();
   if (!reports) throw new Error('Failed to load weather reports.');
   return {
     chunks: ['dashboard'],
     title: 'Dashboard',
     component: (
-      <Layout resilient>
+      <Layout resilient={false}>
         <Dashboard reports={reports} />
       </Layout>
     ),

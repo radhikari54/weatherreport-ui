@@ -19,7 +19,6 @@ class Header extends React.Component {
   static propTypes = {
     resilient: PropTypes.bool.isRequired,
   };
-
   render() {
     return (
       <div className={s.root}>
