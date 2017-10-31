@@ -8,7 +8,13 @@ const routes = {
   children: [
     {
       path: '',
-      load: () => import(/* webpackChunkName: 'dashboard' */ './dashboard'),
+      load: () =>
+        import(/* webpackChunkName: 'dashboard' */ './dashboard/index-resilient'),
+    },
+    {
+      path: '/nonresilient',
+      load: () =>
+        import(/* webpackChunkName: 'dashboard' */ './dashboard/index-nonresilient'),
     },
 
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)

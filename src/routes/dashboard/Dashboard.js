@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Dashboard.css';
 
 import {
   Table,
@@ -13,6 +12,9 @@ import {
 } from 'material-ui/Table';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import s from './Dashboard.css';
+
+// Renders the dashboard
 class Dashboard extends React.Component {
   static propTypes = {
     reports: PropTypes.arrayOf(
@@ -42,7 +44,11 @@ class Dashboard extends React.Component {
                   <TableRow>
                     <TableRowColumn>{report.name}</TableRowColumn>
                     <TableRowColumn>
-                      <img src={`http://openweathermap.org/img/w/${report.weather[0].icon}.png`}></img>
+                      <img
+                        alt="Weather icon"
+                        src={`http://openweathermap.org/img/w/${report
+                          .weather[0].icon}.png`}
+                      />
                       {report.weather[0].main}
                     </TableRowColumn>
                     <TableRowColumn>

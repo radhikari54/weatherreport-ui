@@ -2,8 +2,11 @@ import React from 'react';
 import Dashboard from './Dashboard';
 import Layout from '../../components/Layout';
 
+// Dashboard controller
 async function action({ fetch }) {
-  const response = await fetch('/weather');
+  //  console.log('Resilient dashboard invoked');
+
+  const response = await fetch('/weather?resilient=true');
   const reports = await response.json();
   if (!reports) throw new Error('Failed to load weather reports.');
   return {
