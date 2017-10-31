@@ -32,6 +32,7 @@ class Header extends React.Component {
           <div className={s.banner}>
             <h1 className={s.bannerTitle}>Weather Report</h1>
             <p className={s.bannerDesc}>Making the world just a bit smaller</p>
+            <p className={s.bannerDesc}>{new Date().toString()}</p>
           </div>
         </div>
       </div>
