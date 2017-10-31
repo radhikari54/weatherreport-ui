@@ -13,7 +13,7 @@ async function action({ fetch }) {
     chunks: ['dashboard'],
     title: 'Dashboard',
     component: (
-      <Layout>
+      <Layout resilient={false}>
         <Dashboard reports={reports} />
       </Layout>
     ),
